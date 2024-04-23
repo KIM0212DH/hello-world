@@ -1,0 +1,10 @@
+name: Notidy Microsoft 365
+on: [push]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Send notificatoin to Microsoft 365
+      run :|
+        안녕
