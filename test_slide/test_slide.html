@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Swiper demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+  />
   <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
   <!-- Demo styles -->
   <style>
     html,
@@ -82,11 +86,20 @@
     }
 
     /* 버튼 스타일 */
-    .nextButton {
+    .nextButton,
+    .prevButton {
       position: absolute; /* 슬라이드를 기준으로 위치 지정 */
       bottom: 10px; /* 하단 여백 */
-      right: 10px; /* 오른쪽 여백 */
       z-index: 100;
+    }
+
+    .nextButton {
+      right: 10px; /* 오른쪽 여백 */
+    }
+
+    .prevButton {
+      /* left: calc(100% + 20px); nextButton 오른쪽에 위치 */
+      right: 53px; /* 하단 여백 */
     }
   </style>
 </head>
@@ -106,7 +119,9 @@
       <div class="swiper-slide">Slide 8</div>
       <div class="swiper-slide">Slide 9</div>
     </div>
-    <button class="nextButton">Next</button> <!-- 오른쪽 아래에 next 버튼 추가 -->
+    <button class="prevButton">Prev</button>
+    <button class="nextButton">Next</button>
+    <!-- 오른쪽 아래에 next 버튼 추가 -->
   </div>
 
   <!-- Swiper JS -->
@@ -128,11 +143,15 @@
       },
     });
 
+    // Previous 버튼에 대한 클릭 이벤트 처리
+    document.querySelector(".prevButton").addEventListener("click", function () {
+      swiper.slidePrev();
+    });
+
     // Next 버튼에 대한 클릭 이벤트 처리
-    document.querySelector('.nextButton').addEventListener('click', function() {
+    document.querySelector(".nextButton").addEventListener("click", function () {
       swiper.slideNext();
     });
   </script>
 </body>
-
 </html>
